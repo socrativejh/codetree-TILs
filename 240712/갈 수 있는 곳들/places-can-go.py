@@ -26,6 +26,7 @@ def cango(x, y):
 
 def bfs(a, b):
     global count
+    visited[a][b] = True
     q.append((a, b))
     while q:
         x, y = q.popleft()
