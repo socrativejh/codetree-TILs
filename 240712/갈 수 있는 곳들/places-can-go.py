@@ -26,7 +26,7 @@ def cango(x, y):
 
 def bfs(a, b):
     global count
-    if cango(a, b): count += 1
+    if cango(a, b): count += 1 # 시작점 중에 아직 방문 x다면 count에 포함
     visited[a][b] = True
     q.append((a, b))
     while q:
@@ -40,7 +40,7 @@ def bfs(a, b):
                 q.append((nx, ny))
 count = 0
 for start in starts:
-    bfs(start[0]-1, start[1]-1) # 이렇게 여러번 따로 dfs, bfs해주면 꼭 돌리기 전에!! visited True로 해준다.
+    bfs(start[0]-1, start[1]-1)
     
 
 print(count)
