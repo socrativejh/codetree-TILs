@@ -39,6 +39,6 @@ def bfs(a, b):
                 q.append((nx, ny))
 count = 1
 for start in starts:
-    bfs(start[0], start[1])
+    bfs(start[0]-1, start[1]-1)
 
 print(count)
