@@ -26,7 +26,6 @@ def cango(x, y):
 
 def bfs(a, b):
     global count
-    visited[a][b] = True
     q.append((a, b))
     while q:
         x, y = q.popleft()
@@ -39,6 +38,7 @@ def bfs(a, b):
                 q.append((nx, ny))
 count = 1
 for start in starts:
-    bfs(start[0]-1, start[1]-1)
+    visited[start[0]-1][start[1]-1] = True
+    bfs(start[0]-1, start[1]-1) # 이렇게 여러번 따로 dfs, bfs해주면 꼭 돌리기 전에!! visited True로 해준다.
 
 print(count)
