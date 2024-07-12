@@ -21,8 +21,8 @@ def dfs(x, y):
         nx = x + dx[i]
         ny = y + dy[i]
         if cango(nx, ny):
-            human_count += 1
             visited[nx][ny] = True
+            human_count += 1
             dfs(nx, ny)
 
 # 상하좌우 다 막혀도 더 알아봐야함 -> 모든 좌표에 대해서 dfs 시작해보기 (if문 있지만)
@@ -30,7 +30,8 @@ vilages = []
 for i in range(n):
     for j in range(n):
         if graph[i][j] == 1 and not visited[i][j]:
-            human_count = 0
+            visited[i][j] = True # 맨처음 돌리는건 dfs 전에 True로 해줘야 (각 섬에서) 중복이 안됨 (사람수가 +1 씩 더 나옴)
+            human_count = 1
             dfs(i, j)
             vilages.append(human_count)
 
