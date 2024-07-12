@@ -5,8 +5,8 @@ n, m = map(int, input().split())
 graph = [] * (n)
 visited = [[False] * (n) for _ in range(m)]
 
-dx = [1, 0, 0, 0]
-dy = [0, 0, -1, 0]
+dx = [1, 0]
+dy = [0, 1]
 
 for i in range(n):
     graph.append(list(map(int, input().split())))
@@ -14,17 +14,20 @@ for i in range(n):
 def cango(x, y):
     if x < 0 or x >= m or y < 0 or y >= n: return False
     if not graph[x][y] or visited[x][y]: return False
-    return False
+    return True
  
 def dfs(x, y):
-    for i in range(4):
+    global flag
+    for i in range(2):
         nx = x + dx[i]
         ny = y + dy[i]
         if cango(nx, ny):
-            if nx == m-1 and ny == n-1: return 1
+            if nx == m-1 and ny == n-1: 
+                flag = 1
             visited[nx][ny] = True
             dfs(nx, ny)
-    return 0
 
+flag = 0
 visited[0][0] = True
-print(dfs(0, 0))
+dfs(0, 0)
+print(flag)
