@@ -6,6 +6,8 @@ graph = []; max_sum = 0
 for i in range(n):
     graph.append(list(map(int, input().split())))
 
+# 90도로 돌려서 x+1, y+1로만 더하기 (사각형 모양) -> 실행 조건: x < n-1, y < m-1이면 된다.
+
 def find_1(x, y):
     max_sum = 0
     if x+1 < n and y+1 < m:
