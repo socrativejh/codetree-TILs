@@ -10,8 +10,14 @@ def choose(num):
         return
 
     for i in range(1, k+1):
-        ans.append(i)
-        choose(num+1)
-        ans.pop()
+        if num < 3:
+            ans.append(i)
+            choose(num+1)
+            ans.pop()
+        else:
+            if ans[-1] != i and ans[-2] != i:
+                ans.append(i)
+                choose(num+1)
+                ans.pop()
 
 choose(1)
