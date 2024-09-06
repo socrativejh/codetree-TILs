@@ -6,7 +6,7 @@ ans = []
 
 def choose(num):
     if num == n+1:
-        for i in ans: print(i)
+        for i in ans: print(i, end=" ")
         return
 
     for i in range(1, k+1):
