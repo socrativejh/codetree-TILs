@@ -36,16 +36,17 @@ def cnt_bomb():
                 nx, ny = x + dx, y + dy
                 if 0 <= nx < n and 0 <= ny < n:
                     loc.add((nx, ny))
+    print(loc)
     return len(loc) # 폭발한 영역 개수
 
 def is_most(now, most_bomb):
-    if now == len(bomb_loc):
-        cnt = cnt_bomb()  # 현재 폭탄 배치로 폭발시킨 결과 계산
+    if now == len(bomb_loc): # 폭발 방식 다 골랐으면 폭발하는 영역 개수 count -> max 구하기
+        cnt = cnt_bomb() 
         return max(most_bomb, cnt)
     
-    for i in range(1, 4):
+    for i in range(1, 4): # 모든 폭발 경우의 수를 탐색 (완전탐색?)
         bomb.append(i)  # 폭탄의 폭발 방식 선택 (1, 2, 3 중 하나)
-        most_bomb = is_most(now + 1, most_bomb)
+        most_bomb = is_most(now + 1, most_bomb) # 다음 폭탄으로 넘어가 -> 다시 폭탄 방식 선택 (재귀)
         bomb.pop() 
     
     return most_bomb
