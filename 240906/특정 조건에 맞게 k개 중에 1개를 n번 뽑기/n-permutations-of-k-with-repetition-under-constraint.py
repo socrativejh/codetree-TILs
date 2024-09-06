@@ -2,7 +2,7 @@ import sys
 input = sys.stdin.readline
 
 k, n = map(int, input().split())
-ans = set()
+ans = []
 
 def choose(num):
     if num == n+1:
@@ -10,7 +10,7 @@ def choose(num):
         return
 
     for i in range(1, k+1):
-        ans.add(i)
+        ans.append(i)
         choose(num+1)
         ans.pop()
 
