@@ -36,7 +36,6 @@ def cnt_bomb():
                 nx, ny = x + dx, y + dy
                 if 0 <= nx < n and 0 <= ny < n:
                     loc.add((nx, ny))
-    print(loc)
     return len(loc) # 폭발한 영역 개수
 
 def is_most(now, most_bomb):
